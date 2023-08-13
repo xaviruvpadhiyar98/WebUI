@@ -1,55 +1,120 @@
-var participants = [];
-var chat_colors = [ "#343434",
-                    "#383848",
-                    "#374a48",
-                    "#4a373d",
-                    "#374a3d",
-                    "#57503b",
-                    "#3e2845",
-                    "#452927" ]
 
-var textbox_initial = "";
 
-// Expand/collapse control
+function showHideSubMenu() {
+    var subMenu = document.getElementById("sub-menu")
+    if (subMenu.className.includes(" hidden")) {
+        subMenu.className = subMenu.className.replace(" hidden", "")
+    } else {
+        subMenu.className = subMenu.className + " hidden"
+    }
 
-function expand_collape_control() {
-    var contents = document.querySelector(".contents");
-    contents.style.display = contents.style.display === "none" ? "block" : "none";
-
-    var arrow = document.querySelector(".arrow");
-    arrow.innerHTML = arrow.innerHTML === "▼" ? "▲" : "▼";
 }
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var headers = document.querySelectorAll(".header");
 
-    headers.forEach(function(header) {
-        header.addEventListener("click", function() {
-            expand_collape_control()
-        });
+    // default load chat
+    newChat = document.getElementById("newChat")
+    console.log(newChat)
+    newChat.click()
+    const menuOptions = ["debug", "settings"];
+
+    menuOptions.forEach(item => {
+        const options = document.getElementById(item)
+        options.addEventListener("click", () => {
+            showHideSubMenu()
+        })       
     });
 
-    htmx.on("htmx:afterRequest", function(evt) {
-        console.log(evt)
-        var listItems = document.querySelectorAll("li");
-        var outputDiv = document.getElementsByClassName("model_name")[0];
+    
+    // const debugDiv = document.getElementById("debug")
+    // const settingsDiv = document.getElementById("settings")
 
-        listItems.forEach(function(item) {
-            item.addEventListener("click", function() {
-                var clickedText = item.textContent;
-                outputDiv.textContent = clickedText;
+    // debugDiv.addEventListener("click", () => {
+    //     showHideSubMenu()
 
-                expand_collape_control()
-            });
-        });
-    });
-});
+    // })
+
+    // settingsDiv.addEventListener("click", () => {
+    //     showHideSubMenu()
+    // })
+})
 
 
-function simpleLog(event) {
-    console.log(event)
-}
+// const settingsItem = document.getElementById('setting-id');
+// const submenu = document.getElementById('setting-submenu-id');
+
+// settingsItem.addEventListener('mouseenter', () => {
+//     console.log(settingsItem)
+//     submenu.classList.remove('hidden');
+// });
+
+// settingsItem.addEventListener('mouseleave', () => {
+//     console.log(submenu)
+//     submenu.classList.add('hidden');
+// });
+
+
+
+
+
+
+
+
+
+
+// var participants = [];
+// var chat_colors = [ "#343434",
+//                     "#383848",
+//                     "#374a48",
+//                     "#4a373d",
+//                     "#374a3d",
+//                     "#57503b",
+//                     "#3e2845",
+//                     "#452927" ]
+
+// var textbox_initial = "";
+
+// // Expand/collapse control
+
+// function expand_collape_control() {
+//     var contents = document.querySelector(".contents");
+//     contents.style.display = contents.style.display === "none" ? "block" : "none";
+
+//     var arrow = document.querySelector(".arrow");
+//     arrow.innerHTML = arrow.innerHTML === "▼" ? "▲" : "▼";
+// }
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var headers = document.querySelectorAll(".header");
+
+//     headers.forEach(function(header) {
+//         header.addEventListener("click", function() {
+//             expand_collape_control()
+//         });
+//     });
+
+//     htmx.on("htmx:afterRequest", function(evt) {
+//         console.log(evt)
+//         var listItems = document.querySelectorAll("li");
+//         var outputDiv = document.getElementsByClassName("model_name")[0];
+
+//         listItems.forEach(function(item) {
+//             item.addEventListener("click", function() {
+//                 var clickedText = item.textContent;
+//                 outputDiv.textContent = clickedText;
+
+//                 expand_collape_control()
+//             });
+//         });
+//     });
+// });
+
+
+// function simpleLog(event) {
+//     console.log(event)
+// }
 
 
 
