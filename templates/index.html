@@ -23,15 +23,16 @@
     {% if DEBUG %} {{ hot_reload.script(url_for('hot-reload')) | safe }} {%
     endif %}
 
-    {% include "header.html" %}
-    <div class="flex h-full w-full">
-      {% include "sidebar.html" %}
-      {% include "extended_menu.html" %}
-      {% include "playground.html" %}
-
-      
+    <div class="min-h-screen flex flex-col">
+      {% include "header.html" %}
+      <div class="flex flex-grow">
+        {% include "sidebar.html" %}
+        {% include "extended_menu.html" %}
+        {% include "playground.html" %}
+      </div>
 
     </div>
+
 
     <script src="{{ url_for('static', path='js/main.js') }}"></script>
     <script src="{{ url_for('static', path='js/htmx.js') }}"></script>
