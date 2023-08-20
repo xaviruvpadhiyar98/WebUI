@@ -5,7 +5,7 @@
         id="newChat"
         class="flex h-12 w-12 mt-2 mb-2 mx-auto items-center justify-center bg-gray-800 hover:bg-blue-600 text-blue-500 hover:text-white rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
         hx-get="/chat"
-        hx-trigger="load"
+        hx-trigger="load, click"
         hx-target="#playground"
       >
         <svg
@@ -33,6 +33,9 @@
     <div
       id="productSense"
       class="flex h-12 w-12 mt-2 mb-2 mx-auto items-center justify-center bg-gray-800 hover:bg-blue-600 text-blue-500 hover:text-white rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
+      hx-get="/psd"
+      hx-trigger="click"
+      hx-target="#playground"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +67,9 @@
     <div
       id="convoTestingFramework"
       class="flex h-12 w-12 mt-2 mb-2 mx-auto items-center justify-center bg-gray-800 hover:bg-blue-600 text-blue-500 hover:text-white rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer shadow-lg group"
+      hx-get="/ctf"
+      hx-trigger="click"
+      hx-target="#playground"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
