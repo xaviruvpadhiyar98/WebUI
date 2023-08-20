@@ -757,6 +757,10 @@ video {
   margin-top: auto;
 }
 
+.mt-0 {
+  margin-top: 0px;
+}
+
 .flex {
   display: flex;
 }
@@ -909,6 +913,55 @@ video {
   width: 25%;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+.max-w-\[\] {
+  max-width: ;
+}
+
+.max-w-\[cal\] {
+  max-width: cal;
+}
+
+.max-w-\[calc\] {
+  max-width: calc;
+}
+
+.max-w-\[calc\(100vh-\)\] {
+  max-width: calc(100vh - );
+}
+
+.max-w-\[calc\(100vw-\)\] {
+  max-width: calc(100vw - );
+}
+
+.max-w-\[calc\(100vw-40\)\] {
+  max-width: calc(100vw - 40);
+}
+
+.max-w-\[calc\(100vw-40vw\)\] {
+  max-width: calc(100vw - 40vw);
+}
+
+.max-w-\[calc\(100vw-20vw\)\] {
+  max-width: calc(100vw - 20vw);
+}
+
+.max-w-\[calc\(100vw-vw\)\] {
+  max-width: calc(100vw - vw);
+}
+
+.max-w-\[calc\(100vw-10vw\)\] {
+  max-width: calc(100vw - 10vw);
+}
+
 .flex-grow {
   flex-grow: 1;
 }
@@ -1007,6 +1060,14 @@ video {
 
 .overscroll-contain {
   overscroll-behavior: contain;
+}
+
+.whitespace-normal {
+  white-space: normal;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-3xl {
@@ -1163,6 +1224,11 @@ video {
   padding-right: 0.75rem;
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .pb-14 {
   padding-bottom: 3.5rem;
 }
@@ -1193,6 +1259,10 @@ video {
 
 .pr-72 {
   padding-right: 18rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .text-center {
