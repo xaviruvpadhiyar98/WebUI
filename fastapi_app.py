@@ -23,9 +23,30 @@ if _debug := os.getenv("DEBUG"):
 
 @app.get("/")
 async def root(request: Request):
+    return HTMLResponse("Hi")
     return templates.TemplateResponse(
         "index.html", {"request": request, "user_id": str(uuid4())}
     )
+
+@app.get("/search")
+async def search(request: Request):
+    return templates.TemplateResponse(
+        "search.html", {"request": request, "user_id": str(uuid4())}
+    )
+
+@app.get("/search-results")
+async def search_results(request: Request):
+    q = request.query_params["q"]
+    return HTMLResponse(f"""
+        <li><a>{q}</a></li>
+        <li><a>{q}</a></li>
+        <li><a>{q}</a></li>
+        <li><a>{q}</a></li>                        
+    """)
+    return "Hi"
+    # return templates.TemplateResponse(
+    #     "search.html", {"request": request, "user_id": str(uuid4())}
+    # )
 
 
 @app.get("/chat")
