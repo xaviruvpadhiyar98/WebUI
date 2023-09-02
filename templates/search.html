@@ -31,33 +31,33 @@
             <label for="search" class="h-max">
             <input
               type="text"
-              placeholder="Help here..."
+              placeholder="Search here..."
               class="p-4 m-2 w-[calc(100vh-20vh)] font-semibold bg-transparent outline-none text-gray-400 placeholder-gray-500 cursor-text border-2 border-slate-300"
               name="q"   
+              hx-get="/search-results"
+              hx-target="#results-container"
+              hx-trigger="keyup delay:10ms"
             />
-            <!-- hx-get="/search-results"
-            hx-target="#results-container"
-            hx-trigger="keyup delay:10ms" -->
-          </label>
+            </label>
           </div>
         </div>
         <div>
-          <div id="results-container" class="text-center flex flex-col gap-2">
-            <li><a>Direct Debits</a></li>
-            <li><a>Direct Debits</a></li>
-            <li><a>Direct Debits</a></li>
-            <li><a>Direct Debits</a></li>   
+          <div id="results-container" class="text-center flex flex-col gap-2 h-[calc(100vh-20vh)] overflow-y-auto">
           </div>
-
         </div>
-
+        <div>
+          <div id="question-answer" class="text-center flex flex-col gap-2 hidden">
+            <div id="question">Question goes here</div>
+            <div id="answer">Answer goes here</div>
+          </div>
+        </div>
 
       </div>
 
     </div>
 
 
-    <script src="{{ url_for('static', path='js/main.js') }}"></script>
+    <script src="{{ url_for('static', path='js/search.js') }}"></script>
     <script src="{{ url_for('static', path='js/htmx.js') }}"></script>
   </body>
 </html>

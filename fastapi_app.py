@@ -35,18 +35,29 @@ async def search(request: Request):
     )
 
 @app.get("/search-results")
-async def search_results(request: Request):
-    q = request.query_params["q"]
-    return HTMLResponse(f"""
-        <li><a>{q}</a></li>
-        <li><a>{q}</a></li>
-        <li><a>{q}</a></li>
-        <li><a>{q}</a></li>                        
-    """)
-    return "Hi"
-    # return templates.TemplateResponse(
-    #     "search.html", {"request": request, "user_id": str(uuid4())}
-    # )
+async def search_results(q: str):
+    results = ""
+    for i in range(100):
+        results += f"""
+        <div class="cursor-pointer" hx-get="/clicked" hx-target="#results-container" hx-include="[name='question{i}']">
+            <input
+                type="hidden"
+                name="question{i}"
+                id="question{i}"
+                value="{q}"
+            />
+            {q}
+        </div>
+        """  # noqa: E501
+    return HTMLResponse(results)
+
+@app.get("/clicked")
+async def clicked(request: Request):
+    values = request.query_params.values()
+    print(values)
+    return HTMLResponse("answer")
+
+
 
 
 @app.get("/chat")
@@ -84,11 +95,3 @@ async def list_available_models(request: Request):
         </ul>
     """
     )
-
-# Get existing sessions
-
-
-# @app.get("/api/populate")
-# async def api_populate():
-#     global session
-#     return session.api_populate()
